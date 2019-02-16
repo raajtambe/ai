@@ -1,6 +1,7 @@
 import sys
 import copy
 import math
+import random
 
 class city:
     
@@ -58,4 +59,15 @@ def simulatedAnnealing(PATHS):
             
 
 graph = load_cities("TestCases/euc_100")
+
+def decrease_temp(T,t):
+    T=T/(1+math.log(t))
+    return T
+
+def spin_wheel(prob):
+    if(random.random()<prob):
+        return True
+    else:
+        return False
+
 
